@@ -206,10 +206,14 @@
             transform: translateY(0);
         }
         .menu-overlay.open .menu-links li:nth-child(1) { transition-delay: 0.1s; }
-        .menu-overlay.open .menu-links li:nth-child(2) { transition-delay: 0.15s; }
-        .menu-overlay.open .menu-links li:nth-child(3) { transition-delay: 0.2s; }
-        .menu-overlay.open .menu-links li:nth-child(4) { transition-delay: 0.25s; }
-        .menu-overlay.open .menu-links li:nth-child(5) { transition-delay: 0.3s; }
+        .menu-overlay.open .menu-links li:nth-child(2) { transition-delay: 0.13s; }
+        .menu-overlay.open .menu-links li:nth-child(3) { transition-delay: 0.16s; }
+        .menu-overlay.open .menu-links li:nth-child(4) { transition-delay: 0.19s; }
+        .menu-overlay.open .menu-links li:nth-child(5) { transition-delay: 0.22s; }
+        .menu-overlay.open .menu-links li:nth-child(6) { transition-delay: 0.25s; }
+        .menu-overlay.open .menu-links li:nth-child(7) { transition-delay: 0.28s; }
+        .menu-overlay.open .menu-links li:nth-child(8) { transition-delay: 0.31s; }
+        .menu-overlay.open .menu-links li:nth-child(9) { transition-delay: 0.34s; }
         .menu-links a {
             color: #e0e0e0;
             text-decoration: none;
@@ -417,6 +421,156 @@
             border-radius: 12px;
         }
 
+        /* ── CV Section ── */
+        .cv-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+        }
+        .cv-section h2 {
+            font-size: 1.6rem;
+            color: #b388ff;
+            margin-bottom: 0.5rem;
+        }
+        .cv-section .section-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #7c4dff, #ce93d8);
+            border-radius: 2px;
+            margin-bottom: 2.5rem;
+        }
+        .cv-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .cv-timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #7c4dff, rgba(124, 77, 255, 0.1));
+        }
+        .cv-company {
+            position: relative;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .cv-company.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cv-company::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #7c4dff;
+            border: 2px solid #0d0d0d;
+        }
+        .cv-company-header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.25rem;
+        }
+        .cv-company-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #b388ff;
+        }
+        .cv-company-tenure {
+            font-size: 0.8rem;
+            color: #777;
+        }
+        .cv-company-location {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 0.75rem;
+        }
+        .cv-role {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+        .cv-role:hover {
+            border-color: #3a3a3a;
+        }
+        .cv-role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            color: inherit;
+            font: inherit;
+            text-align: left;
+        }
+        .cv-role-header:hover {
+            background: rgba(124, 77, 255, 0.03);
+        }
+        .cv-role-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 0.15rem;
+        }
+        .cv-role-info .cv-dates {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        .cv-chevron {
+            color: #666;
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        .cv-role.open .cv-chevron {
+            transform: rotate(180deg);
+        }
+        .cv-role-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .cv-role.open .cv-role-body {
+            max-height: 300px;
+        }
+        .cv-role-body-inner {
+            padding: 0 1.25rem 1.25rem;
+        }
+        .cv-role-body p {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        .cv-current-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7c4dff;
+            background: rgba(124, 77, 255, 0.12);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
         /* ── Blog Section ── */
         .blog-section {
             max-width: 800px;
@@ -519,6 +673,7 @@
         <ul class="nav-links" role="list">
             <li><a href="#hero">Home</a></li>
             <li><a href="#demo">Projects</a></li>
+            <li><a href="#cv">Experience</a></li>
             <li><a href="#blog">Writing</a></li>
             <li><a href="https://www.linkedin.com/in/cmedfisch/" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
         </ul>
@@ -537,6 +692,8 @@
             <li><a href="#hero">Home</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
             <li><a href="#demo">Projects</a></li>
+            <li role="separator"><div class="menu-divider"></div></li>
+            <li><a href="#cv">Experience</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
             <li><a href="#blog">Writing</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
@@ -570,6 +727,188 @@
                     <source src="videos/demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+            </div>
+        </section>
+
+        <section class="cv-section" id="cv" aria-label="Work experience">
+            <h2>Experience</h2>
+            <div class="section-line" aria-hidden="true"></div>
+            <div class="cv-timeline">
+
+                <!-- Cisco / Duo -->
+                <div class="cv-company">
+                    <div class="cv-company-header">
+                        <span class="cv-company-name">Cisco / Duo Security</span>
+                        <span class="cv-company-tenure">9+ years</span>
+                    </div>
+
+                    <div class="cv-role open">
+                        <button class="cv-role-header" aria-expanded="true">
+                            <div class="cv-role-info">
+                                <h4>Senior Product Manager, Identity Security <span class="cv-current-badge">Current</span></h4>
+                                <span class="cv-dates">Jun 2025 - Present</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Shaping the long-term product vision for Duo's evolution into a holistic Identity Platform, driving expansion into high-growth adjacencies to solve for market consolidation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Senior Product Manager, Single Sign-On</h4>
+                                <span class="cv-dates">Nov 2024 - Jul 2025</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Drove strategic growth of Duo's Identity portfolio, expanding the product line from MFA to SSO to a full Security-First IAM suite and leading its 0-to-1 market entry.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Product Manager, Single Sign-On</h4>
+                                <span class="cv-dates">May 2021 - Nov 2024</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Fueled the growth of the SSO user base by modernizing the authentication stack, removing technical barriers to enterprise adoption and partner integration expansion.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Senior Customer Solutions Engineer</h4>
+                                <span class="cv-dates">Feb 2020 - May 2021</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Managed technical strategy for strategic enterprise deployments, serving as the primary feedback loop between high-value customers and the Product organization.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Customer Solutions Engineer</h4>
+                                <span class="cv-dates">Nov 2018 - Feb 2020</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Partnered with enterprise customers to design and implement identity security solutions across complex multi-domain environments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Technical Support Engineer II</h4>
+                                <span class="cv-dates">Mar 2017 - Nov 2018</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Scaled global support operations by engineering internal automation tools and driving organizational growth.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Technical Support Engineer I</h4>
+                                <span class="cv-dates">Aug 2016 - Mar 2017</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Delivered front-line technical resolution for a rapidly growing user base, transforming reactive support interactions into long-term customer advocacy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HM Health Solutions -->
+                <div class="cv-company">
+                    <div class="cv-company-header">
+                        <span class="cv-company-name">HM Health Solutions</span>
+                        <span class="cv-company-tenure">1 yr 4 mos</span>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Cyber Incident Response &amp; Threat Management Analyst</h4>
+                                <span class="cv-dates">Aug 2015 - Aug 2016</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Conducted endpoint and network forensic analysis, developed custom SIEM use-cases, and designed foundational incident response workflows to scale the SOC.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Information Security &amp; Risk Intern</h4>
+                                <span class="cv-dates">May 2015 - Aug 2015</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Gained foundational experience in Governance, Risk, and Compliance (GRC) by supporting the organization's path to HITRUST certification.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smith Micro Software -->
+                <div class="cv-company">
+                    <div class="cv-company-header">
+                        <span class="cv-company-name">Smith Micro Software</span>
+                        <span class="cv-company-tenure">7 mos</span>
+                    </div>
+
+                    <div class="cv-role">
+                        <button class="cv-role-header" aria-expanded="false">
+                            <div class="cv-role-info">
+                                <h4>Quality Assurance Engineer Intern</h4>
+                                <span class="cv-dates">Nov 2014 - May 2015</span>
+                            </div>
+                            <span class="cv-chevron" aria-hidden="true">&#9660;</span>
+                        </button>
+                        <div class="cv-role-body">
+                            <div class="cv-role-body-inner">
+                                <p>Developed a foundational understanding of the Software Development Life Cycle (SDLC) and mobile software quality standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -689,7 +1028,16 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.blog-card, .video-wrapper').forEach(el => observer.observe(el));
+        document.querySelectorAll('.blog-card, .video-wrapper, .cv-company').forEach(el => observer.observe(el));
+
+        // CV expandable roles
+        document.querySelectorAll('.cv-role-header').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const role = btn.closest('.cv-role');
+                const isOpen = role.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen);
+            });
+        });
     </script>
 </body>
 </html>
