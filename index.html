@@ -387,6 +387,15 @@
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
+        .video-section .video-description a {
+            color: #b388ff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(179, 136, 255, 0.3);
+            transition: border-color 0.3s ease;
+        }
+        .video-section .video-description a:hover {
+            border-bottom-color: #b388ff;
+        }
         .video-wrapper {
             position: relative;
             border-radius: 12px;
@@ -509,7 +518,7 @@
         <a href="#hero" class="nav-logo" aria-label="Colin Medfisch - Home">CM</a>
         <ul class="nav-links" role="list">
             <li><a href="#hero">Home</a></li>
-            <li><a href="#demo">Demo</a></li>
+            <li><a href="#demo">Projects</a></li>
             <li><a href="#blog">Writing</a></li>
             <li><a href="https://www.linkedin.com/in/cmedfisch/" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
         </ul>
@@ -527,7 +536,7 @@
         <ul class="menu-links" role="list">
             <li><a href="#hero">Home</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
-            <li><a href="#demo">Demo</a></li>
+            <li><a href="#demo">Projects</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
             <li><a href="#blog">Writing</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
@@ -552,12 +561,12 @@
             </div>
         </section>
 
-        <section class="video-section" id="demo" aria-label="Demo video">
-            <h2>Demo</h2>
+        <section class="video-section" id="demo" aria-label="Current projects">
+            <h2>What I'm Working On</h2>
             <div class="section-line" aria-hidden="true"></div>
-            <p class="video-description">Building with Claude Code — a quick walkthrough of agentic development in action.</p>
+            <p class="video-description">Exploring the intersection of identity, security, and AI. Currently focused on <a href="https://duo.com/solutions/agentic-ai-security" target="_blank" rel="noopener noreferrer">Agentic AI Security at Duo</a> — building products that help organizations secure AI-driven workflows.</p>
             <div class="video-wrapper">
-                <video controls preload="metadata" aria-label="Claude Code demo video">
+                <video controls preload="metadata" aria-label="Agentic development demo video">
                     <source src="demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
