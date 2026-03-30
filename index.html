@@ -28,15 +28,14 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #7c4dff, #b388ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0 auto 2rem;
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: #0d0d0d;
-            letter-spacing: 2px;
+            overflow: hidden;
+            border: 3px solid #7c4dff;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         h1 {
             font-size: 2.4rem;
@@ -81,7 +80,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="avatar">CM</div>
+        <div class="avatar"><img src="headshot.jpg" alt="Colin Medfisch"></div>
         <h1>Colin Medfisch</h1>
         <p class="title">Senior Product Manager - Identity Strategy</p>
         <p class="org">Duo @ Cisco</p>
