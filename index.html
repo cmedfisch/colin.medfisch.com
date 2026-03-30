@@ -16,8 +16,86 @@
             color: #e0e0e0;
         }
 
-        /* ── Nav ── */
-        .nav {
+        /* ── Desktop Nav Bar ── */
+        .desktop-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 3rem;
+            height: 64px;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(124, 77, 255, 0);
+            transition: border-color 0.3s ease;
+        }
+        .desktop-nav.scrolled {
+            border-bottom-color: rgba(124, 77, 255, 0.15);
+        }
+        .desktop-nav .nav-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #b388ff;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        .desktop-nav .nav-logo:hover {
+            color: #ce93d8;
+        }
+        .desktop-nav .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .desktop-nav .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .desktop-nav .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #7c4dff, #ce93d8);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .desktop-nav .nav-links a:hover {
+            color: #b388ff;
+        }
+        .desktop-nav .nav-links a:hover::after {
+            width: 100%;
+        }
+        .desktop-nav .nav-links .nav-btn {
+            color: #b388ff;
+            border: 1px solid #7c4dff;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .desktop-nav .nav-links .nav-btn::after {
+            display: none;
+        }
+        .desktop-nav .nav-links .nav-btn:hover {
+            background: #7c4dff;
+            color: #0d0d0d;
+        }
+
+        /* ── Mobile Nav ── */
+        .mobile-nav {
             position: fixed;
             top: 0;
             right: 0;
@@ -54,8 +132,6 @@
         .hamburger.open span:nth-child(3) {
             transform: translateY(-11px) rotate(-45deg);
         }
-
-        /* Menu overlay */
         .menu-overlay {
             position: fixed;
             inset: 0;
@@ -87,8 +163,10 @@
             transform: translateY(0);
         }
         .menu-overlay.open .menu-links li:nth-child(1) { transition-delay: 0.1s; }
-        .menu-overlay.open .menu-links li:nth-child(2) { transition-delay: 0.2s; }
-        .menu-overlay.open .menu-links li:nth-child(3) { transition-delay: 0.3s; }
+        .menu-overlay.open .menu-links li:nth-child(2) { transition-delay: 0.15s; }
+        .menu-overlay.open .menu-links li:nth-child(3) { transition-delay: 0.2s; }
+        .menu-overlay.open .menu-links li:nth-child(4) { transition-delay: 0.25s; }
+        .menu-overlay.open .menu-links li:nth-child(5) { transition-delay: 0.3s; }
         .menu-links a {
             color: #e0e0e0;
             text-decoration: none;
@@ -106,6 +184,15 @@
             background: #7c4dff;
             margin: 0 auto;
             border-radius: 2px;
+        }
+
+        /* Responsive show/hide */
+        @media (min-width: 768px) {
+            .desktop-nav { display: flex; }
+            .mobile-nav, .menu-overlay { display: none; }
+        }
+        @media (max-width: 767px) {
+            .desktop-nav { display: none !important; }
         }
 
         /* ── Hero ── */
@@ -326,8 +413,18 @@
     </style>
 </head>
 <body>
-    <!-- Hamburger Nav -->
-    <nav class="nav">
+    <!-- Desktop Nav -->
+    <nav class="desktop-nav" id="desktopNav">
+        <a href="#hero" class="nav-logo">CM</a>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#blog">Writing</a></li>
+            <li><a href="https://www.linkedin.com/in/cmedfisch/" target="_blank" rel="noopener noreferrer" class="nav-btn">LinkedIn</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav">
         <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -398,6 +495,16 @@
     <script>
         window.addEventListener('load', () => {
             document.querySelector('.hero-content').classList.add('loaded');
+        });
+
+        // Desktop nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('desktopNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
         });
 
         // Hamburger menu
