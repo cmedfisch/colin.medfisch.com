@@ -363,6 +363,51 @@
             fill: currentColor;
         }
 
+        /* ── Video Section ── */
+        .video-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+        }
+        .video-section h2 {
+            font-size: 1.6rem;
+            color: #b388ff;
+            margin-bottom: 0.5rem;
+        }
+        .video-section .section-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #7c4dff, #ce93d8);
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+        .video-section .video-description {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .video-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+            background: #1a1a1a;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .video-wrapper.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .video-wrapper video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
         /* ── Blog Section ── */
         .blog-section {
             max-width: 800px;
@@ -464,6 +509,7 @@
         <a href="#hero" class="nav-logo" aria-label="Colin Medfisch - Home">CM</a>
         <ul class="nav-links" role="list">
             <li><a href="#hero">Home</a></li>
+            <li><a href="#demo">Demo</a></li>
             <li><a href="#blog">Writing</a></li>
             <li><a href="https://www.linkedin.com/in/cmedfisch/" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
         </ul>
@@ -480,6 +526,8 @@
     <div class="menu-overlay" id="menuOverlay" role="dialog" aria-label="Navigation menu" aria-hidden="true">
         <ul class="menu-links" role="list">
             <li><a href="#hero">Home</a></li>
+            <li role="separator"><div class="menu-divider"></div></li>
+            <li><a href="#demo">Demo</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
             <li><a href="#blog">Writing</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
@@ -501,6 +549,18 @@
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     LinkedIn
                 </a>
+            </div>
+        </section>
+
+        <section class="video-section" id="demo" aria-label="Demo video">
+            <h2>Demo</h2>
+            <div class="section-line" aria-hidden="true"></div>
+            <p class="video-description">Building with Claude Code — a quick walkthrough of agentic development in action.</p>
+            <div class="video-wrapper">
+                <video controls preload="metadata" aria-label="Claude Code demo video">
+                    <source src="demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </section>
 
@@ -630,7 +690,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.blog-card').forEach(card => observer.observe(card));
+        document.querySelectorAll('.blog-card, .video-wrapper').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
