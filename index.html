@@ -700,6 +700,103 @@
             fill: currentColor;
         }
 
+        /* ── Speaking Section ── */
+        .speaking-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+        }
+        .speaking-section h2 {
+            font-size: 1.6rem;
+            color: #b388ff;
+            margin-bottom: 0.5rem;
+        }
+        .speaking-section .section-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #7c4dff, #ce93d8);
+            border-radius: 2px;
+            margin-bottom: 2.5rem;
+        }
+        .talk-card {
+            display: block;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .talk-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .talk-card:hover {
+            border-color: #7c4dff;
+            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.15);
+        }
+        .talk-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .talk-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+        .talk-badge.upcoming {
+            color: #69f0ae;
+            background: rgba(105, 240, 174, 0.12);
+        }
+        .talk-badge.masterclass {
+            color: #b388ff;
+            background: rgba(124, 77, 255, 0.12);
+        }
+        .talk-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        .talk-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        .talk-card:hover h3 {
+            color: #b388ff;
+        }
+        .talk-venue {
+            font-size: 0.85rem;
+            color: #b388ff;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        .talk-desc {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .talk-speakers {
+            font-size: 0.8rem;
+            color: #777;
+        }
+        .talk-speakers strong {
+            color: #999;
+            font-weight: 500;
+        }
+
         /* ── CV Section ── */
         .cv-section {
             max-width: 800px;
@@ -980,6 +1077,7 @@
             <li><a href="#hero">Home</a></li>
             <li><a href="#demo">Projects</a></li>
             <li><a href="#oss">Open Source</a></li>
+            <li><a href="#speaking">Speaking</a></li>
             <li><a href="#cv">Experience</a></li>
             <li><a href="#blog">Writing</a></li>
             <li><a href="https://www.linkedin.com/in/cmedfisch/" target="_blank" rel="noopener noreferrer" class="nav-btn" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
@@ -1001,6 +1099,8 @@
             <li><a href="#demo">Projects</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
             <li><a href="#oss">Open Source</a></li>
+            <li role="separator"><div class="menu-divider"></div></li>
+            <li><a href="#speaking">Speaking</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
             <li><a href="#cv">Experience</a></li>
             <li role="separator"><div class="menu-divider"></div></li>
@@ -1088,6 +1188,23 @@
                     </a>
                 </div>
             </div>
+        </section>
+
+        <section class="speaking-section" id="speaking" aria-label="Conference talks">
+            <h2>Speaking</h2>
+            <div class="section-line" aria-hidden="true"></div>
+
+            <a class="talk-card" href="https://identiverse.com/idv26/session/?idvid=4056439" target="_blank" rel="noopener noreferrer">
+                <div class="talk-meta">
+                    <span class="talk-badge upcoming">Upcoming</span>
+                    <span class="talk-badge masterclass">Masterclass</span>
+                    <span class="talk-date">June 17, 2026</span>
+                </div>
+                <h3>Hands-On Agentic Authorization: Building Identity-Aware Tool Control with Cisco</h3>
+                <div class="talk-venue">Identiverse 2026 &middot; Las Vegas, NV</div>
+                <p class="talk-desc">A live masterclass building a complete agentic authorization system: onboarding an MCP server, configuring fine-grained tool-level policies, authenticating an AI agent via OAuth 2.1/OIDC through Duo SSO, and watching access decisions execute in real time.</p>
+                <div class="talk-speakers">With <strong>Dros Adamson</strong>, Principal Software Engineer, Cisco Duo</div>
+            </a>
         </section>
 
         <section class="cv-section" id="cv" aria-label="Work experience">
@@ -1424,7 +1541,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.blog-card, .video-wrapper, .cv-company, .oss-card').forEach(el => observer.observe(el));
+        document.querySelectorAll('.blog-card, .video-wrapper, .cv-company, .oss-card, .talk-card').forEach(el => observer.observe(el));
 
         // CV expandable roles
         document.querySelectorAll('.cv-role-header').forEach(btn => {
