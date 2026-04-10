@@ -618,7 +618,7 @@
         }
         .oss-install {
             display: flex;
-            align-items: center;
+            align-items: baseline;
             gap: 0.75rem;
             background: #111;
             border: 1px solid #2a2a2a;
@@ -628,6 +628,9 @@
             font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
             font-size: 0.85rem;
             color: #b388ff;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
         }
         .oss-install .prompt {
             color: #555;
