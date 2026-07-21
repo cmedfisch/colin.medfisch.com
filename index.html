@@ -61,6 +61,15 @@
             color: #e0e0e0;
             -webkit-font-smoothing: antialiased;
         }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
 
         /* ── Desktop Nav Bar ── */
         .desktop-nav {
@@ -412,19 +421,24 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1.75rem;
-            background: transparent;
+            background: linear-gradient(180deg, rgba(124, 77, 255, 0.1) 0%, rgba(124, 77, 255, 0.03) 100%);
             border: 2px solid #7c4dff;
             color: #b388ff;
             border-radius: 50px;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(124, 77, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
         }
         .linkedin-btn:hover {
-            background: #7c4dff;
+            background: linear-gradient(180deg, #8c5aff 0%, #7c4dff 100%);
             color: #0d0d0d;
-            box-shadow: 0 0 20px rgba(124, 77, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(124, 77, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+        .linkedin-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 6px rgba(124, 77, 255, 0.3);
         }
         .linkedin-btn svg {
             width: 18px;
@@ -436,18 +450,24 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1.75rem;
-            background: rgba(124, 77, 255, 0.08);
-            border: 2px solid transparent;
+            background: linear-gradient(180deg, rgba(124, 77, 255, 0.1) 0%, rgba(124, 77, 255, 0.04) 100%);
+            border: 1px solid rgba(124, 77, 255, 0.2);
             color: #999;
             border-radius: 50px;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.3s ease, background 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
         }
         .scroll-btn:hover {
             color: #b388ff;
-            background: rgba(124, 77, 255, 0.12);
+            background: linear-gradient(180deg, rgba(124, 77, 255, 0.15) 0%, rgba(124, 77, 255, 0.06) 100%);
+            box-shadow: 0 4px 12px rgba(124, 77, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+        .scroll-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         }
         .scroll-indicator {
             margin-top: 3.5rem;
@@ -501,7 +521,9 @@
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #2a2a2a;
-            background: #1a1a1a;
+            border-top-color: #333;
+            background: linear-gradient(180deg, #1e1e1e 0%, #141414 100%);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -536,11 +558,12 @@
             margin-bottom: 2.5rem;
         }
         .oss-card {
-            background: #1a1a1a;
+            background: linear-gradient(180deg, #1e1e1e 0%, #161616 100%);
             border: 1px solid #2a2a2a;
+            border-top-color: #333;
             border-radius: 12px;
             padding: 2rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -551,6 +574,7 @@
         }
         .oss-card:hover {
             border-color: #3a3a3a;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
         }
         .oss-card-top {
             display: flex;
@@ -723,12 +747,14 @@
         }
         .talk-card {
             display: block;
-            background: #1a1a1a;
+            background: linear-gradient(180deg, #1e1e1e 0%, #161616 100%);
             border: 1px solid #2a2a2a;
+            border-top-color: #333;
             border-radius: 12px;
             padding: 2rem;
             text-decoration: none;
             color: inherit;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -739,7 +765,7 @@
         }
         .talk-card:hover {
             border-color: #7c4dff;
-            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(124, 77, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.06);
         }
         .talk-meta {
             display: flex;
@@ -875,15 +901,18 @@
             margin-bottom: 0.75rem;
         }
         .cv-role {
-            background: #1a1a1a;
+            background: linear-gradient(180deg, #1e1e1e 0%, #161616 100%);
             border: 1px solid #2a2a2a;
+            border-top-color: #333;
             border-radius: 10px;
             margin-bottom: 0.75rem;
             overflow: hidden;
-            transition: border-color 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .cv-role:hover {
             border-color: #3a3a3a;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
         .cv-role-header {
             display: flex;
@@ -1001,10 +1030,12 @@
             gap: 1.5rem;
         }
         .blog-card {
-            background: #1a1a1a;
+            background: linear-gradient(180deg, #1e1e1e 0%, #161616 100%);
             border: 1px solid #2a2a2a;
+            border-top-color: #333;
             border-radius: 12px;
             padding: 1.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             color: inherit;
@@ -1013,7 +1044,7 @@
         .blog-card:hover {
             border-color: #7c4dff;
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(124, 77, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.06);
         }
         .blog-card .tag {
             display: inline-block;
