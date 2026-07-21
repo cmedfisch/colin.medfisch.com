@@ -1197,9 +1197,8 @@
             <h2>Speaking</h2>
             <div class="section-line" aria-hidden="true"></div>
 
-            <a class="talk-card" href="https://identiverse.com/idv26/session/?idvid=4056439" target="_blank" rel="noopener noreferrer">
+            <div class="talk-card visible">
                 <div class="talk-meta">
-                    <span class="talk-badge upcoming">Upcoming</span>
                     <span class="talk-badge masterclass">Masterclass</span>
                     <span class="talk-date">June 17, 2026</span>
                 </div>
@@ -1207,7 +1206,14 @@
                 <div class="talk-venue">Identiverse 2026 &middot; Las Vegas, NV</div>
                 <p class="talk-desc">A live masterclass building a complete agentic authorization system: onboarding an MCP server, configuring fine-grained tool-level policies, authenticating an AI agent via OAuth 2.1/OIDC through Duo SSO, and watching access decisions execute in real time.</p>
                 <div class="talk-speakers">With <strong>Dros Adamson</strong>, Principal Software Engineer, Cisco Duo</div>
-            </a>
+                <div class="video-wrapper visible" style="margin-top: 1.5rem;">
+                    <video controls playsinline preload="auto" aria-label="Hands-On Agentic Authorization masterclass recording from Identiverse 2026">
+                        <source src="videos/identiverse-2026.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="talk-desc" style="margin-top: 1rem; font-size: 0.8rem; color: #777;">Filmed at <a href="https://www.identiverse.com" target="_blank" rel="noopener noreferrer" style="color: #b388ff; text-decoration: none; border-bottom: 1px solid rgba(179,136,255,0.3);">Identiverse 2026</a></p>
+            </div>
         </section>
 
         <section class="cv-section" id="cv" aria-label="Work experience">
@@ -1219,7 +1225,7 @@
                 <div class="cv-company">
                     <div class="cv-company-header">
                         <span class="cv-company-name">Cisco / Duo Security</span>
-                        <span class="cv-company-tenure">9+ years</span>
+                        <span class="cv-company-tenure">10 years</span>
                     </div>
 
                     <div class="cv-role open">
@@ -1428,6 +1434,18 @@
             <h2>Writing</h2>
             <div class="section-line" aria-hidden="true"></div>
             <div class="blog-grid">
+                <a class="blog-card" href="https://duo.com/blog/duo-brings-identity-and-authorization-across-ai-agent-gateways" target="_blank" rel="noopener noreferrer" aria-label="Duo Brings Identity and Authorization Across AI Agent Gateways (opens Duo Blog)">
+                    <span class="tag">Agentic AI</span>
+                    <h3>Duo Brings Identity and Authorization Across AI Agent Gateways</h3>
+                    <p>How Duo's Agentic Identity platform works as a universal authorization engine across multiple AI agent gateways, enforcing consistent per-tool-call access controls regardless of infrastructure.</p>
+                    <span class="read-more" aria-hidden="true">Read on Duo Blog &rarr;</span>
+                </a>
+                <a class="blog-card" href="https://duo.com/blog/duo-plainid-dynamic-authorization-meets-enterprise-identity" target="_blank" rel="noopener noreferrer" aria-label="Duo + PlainID: Dynamic Authorization Meets Enterprise Identity (opens Duo Blog)">
+                    <span class="tag">Authorization</span>
+                    <h3>Duo + PlainID: Dynamic Authorization Meets Enterprise Identity</h3>
+                    <p>How Cisco Duo and PlainID enable dynamic token enrichment at authentication time, injecting real-time authorization policies so access rights reflect current roles and permissions.</p>
+                    <span class="read-more" aria-hidden="true">Read on Duo Blog &rarr;</span>
+                </a>
                 <a class="blog-card" href="https://duo.com/blog/secure-ai-agent-ecosystem-with-duo" target="_blank" rel="noopener noreferrer" aria-label="From Protocol to Practice: Secure the AI Agent Ecosystem with Duo (opens Duo Blog)">
                     <span class="tag">Agentic AI</span>
                     <h3>From Protocol to Practice: Secure the AI Agent Ecosystem with Duo</h3>
